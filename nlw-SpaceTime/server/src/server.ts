@@ -12,10 +12,6 @@ app.register(authRoutes)
 app.register(cors, { origin: true })
 app.register(jwt, { secret: 'spacetime' })
 
-app.get('/hello', () => {
-  return 'hello world'
-})
-
 app
   .listen({
     port: 3333,
