@@ -1,3 +1,6 @@
+//direita page
+
+
 import { EmptyMemories } from "@/components/EmptyMemories";
 import { api } from "@/lib/api";
 import dayjs from "dayjs";
@@ -39,7 +42,7 @@ export default async function Home() {
     }
 
   return (
-    <div className="fkex flex-col gap-10 p-8">
+    <div className="flex flex-col gap-10 p-8">
       {memories.map(memory => {
         return (
           <div key={memory.id} className="space-y-4">

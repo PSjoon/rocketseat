@@ -1,3 +1,5 @@
+//esquerda page
+
 import { CopyrightFooter } from '@/components/CopyrightFooter'
 import { EmptyMemories } from '@/components/EmptyMemories'
 import { Hero } from '@/components/Hero'
@@ -46,7 +48,6 @@ export default function RootLayout({
               {children}
             </div>
         </main>
-
 
       </body>
     </html>
