@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { Camera } from "lucide-react"
-import { MediaPicker } from "./MediaPicker"
-import { FormEvent } from "react"
-import { api } from "@/lib/api"
-import Cookie from "js-cookie"
-import { useRouter } from "next/navigation"
+import { Camera } from 'lucide-react'
+import { MediaPicker } from './MediaPicker'
+import { FormEvent } from 'react'
+import { api } from '@/lib/api'
+import Cookie from 'js-cookie'
+import { useRouter } from 'next/navigation'
 
 export function NewMemoryForm() {
   const router = useRouter()
@@ -15,27 +15,27 @@ export function NewMemoryForm() {
 
     const formData = new FormData(event.currentTarget)
 
-    const fileToUpload = formData.get("coverUrl")
+    const fileToUpload = formData.get('coverUrl')
 
-    let coverUrl = ""
+    let coverUrl = ''
 
     if (fileToUpload) {
       const uploadFormData = new FormData()
-      uploadFormData.set("file", fileToUpload)
+      uploadFormData.set('file', fileToUpload)
 
-      const uploadResponde = await api.post("/uploads", uploadFormData)
+      const uploadResponde = await api.post('/uploads', uploadFormData)
 
       coverUrl = uploadResponde.data.fileUrl
     }
 
-    const token = Cookie.get("token")
+    const token = Cookie.get('token')
 
     await api.post(
-      "/memories",
+      '/memories',
       {
         coverUrl,
-        content: formData.get("content"),
-        isPublic: formData.get("isPubli"),
+        content: formData.get('content'),
+        isPublic: formData.get('isPubli'),
       },
       {
         headers: {
@@ -44,7 +44,7 @@ export function NewMemoryForm() {
       },
     )
 
-    router.push("/")
+    router.push('/')
   }
 
   return (
